@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>AI Career Report</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+
+    <div class="container">
+
+        <div class="card">
+
+            <h1>AI Career Report</h1>
+
+            <h3>Role Analysis for: {{ desired_role }}</h3>
+
+            <div class="summary-cards">
+
+                <div class="mini-card">
+                    <h3>Role Match Analysis</h3>
+                    <p>Role-Specific Analysis</p>
+                </div>
+
+                <div class="mini-card">
+                    <h3>ATS Evaluation</h3>
+                    <p>Resume Screening</p>
+                </div>
+
+                <div class="mini-card">
+                    <h3>Interview Readiness</h3>
+                    <p>Skill Gap Detection</p>
+                </div>
+
+            </div>
+
+            <div class="report-box">
+                <pre>{{ report }}</pre>
+            </div>
+
+            <br>
+
+            <a href="/">
+                <button>
+                    Analyze Another Resume
+                </button>
+            </a>
+
+        </div>
+
+    </div>
+
+</body>
+
+</html>
