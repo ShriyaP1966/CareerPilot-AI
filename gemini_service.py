@@ -108,13 +108,11 @@ NEXT_3_ACTIONS:
 3. action
 """
 
-    try:
-        response = model.generate_content(prompt)
-        return response.text
+try:
+    response = model.generate_content(prompt)
+    return response.text
 
-    except Exception as e:
-
+except Exception as e:
     if "429" in str(e) or "quota" in str(e).lower():
-        return "⚠️ Oops! CareerPilot AI is currently unavailable due to AI service limitations."
-
-    return "⚠️ An unexpected error occurred. Please try again later."
+        return "Oops! CareerPilot AI is currently unavailable due to AI service limitations."
+    return "An unexpected error occured. Please try again later."
