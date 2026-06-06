@@ -113,6 +113,8 @@ NEXT_3_ACTIONS:
         return response.text
 
     except Exception as e:
-        return f"ERROR: {str(e)}"
 
-        return "⚠️ An unexpected error occurred. Please try again later."
+    if "429" in str(e) or "quota" in str(e).lower():
+        return "⚠️ Oops! CareerPilot AI is currently unavailable due to AI service limitations."
+
+    return "⚠️ An unexpected error occurred. Please try again later."
