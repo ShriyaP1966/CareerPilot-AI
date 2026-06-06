@@ -113,8 +113,6 @@ NEXT_3_ACTIONS:
         return response.text
 
     except Exception as e:
-
-        if "429" in str(e) or "quota" in str(e).lower():
-            return "⚠️ AI service is temporarily busy. Please try again in a minute."
+        return f"ERROR: {str(e)}"
 
         return "⚠️ An unexpected error occurred. Please try again later."
