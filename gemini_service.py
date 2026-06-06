@@ -59,11 +59,11 @@ IMPORTANT:
 
 Return EXACTLY in this format:
 
-ROLE_MATCH_SCORE: <number>
+ROLE_MATCH_SCORE: <score>/100
 
-ATS_SCORE: <number>
+ATS_SCORE: <score>/100
 
-INTERVIEW_READINESS: <number>
+INTERVIEW_READINESS: <score>/100
 
 VERDICT: <Strong Candidate / Moderate Candidate / Needs Improvement>
 
@@ -92,8 +92,8 @@ NEXT_3_ACTIONS:
 1. action
 2. action
 3. action
-"""
 
+"""
     response = model.generate_content(prompt)
 
     return response.text
