@@ -52,10 +52,24 @@ INTERVIEW READINESS:
 - Estimate how prepared the candidate appears
 
 IMPORTANT:
-- Keep the report concise
-- Avoid long paragraphs
-- Give actionable insights
-- Be realistic with scoring
+
+All scores MUST be returned in the format XX/100.
+
+Examples:
+
+ROLE_MATCH_SCORE: 70/100
+
+ATS_SCORE: 65/100
+
+INTERVIEW_READINESS: 45/100
+
+Never return only the number.
+Always include "/100".
+
+Keep the report concise.
+Avoid long paragraphs.
+Give actionable insights.
+Be realistic with scoring.
 
 Return EXACTLY in this format:
 
@@ -92,8 +106,15 @@ NEXT_3_ACTIONS:
 1. action
 2. action
 3. action
-
 """
-    response = model.generate_content(prompt)
 
-    return response.text
+    try:
+        response = model.generate_content(prompt)
+        return response.text
+
+    except Exception as e:
+
+        if "429" in str(e) or "quota" in str(e).lower():
+            return "⚠️ AI service is temporarily busy. Please try again in a minute."
+
+        return "⚠️ An unexpected error occurred. Please try again later."
